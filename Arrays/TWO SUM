@@ -1,0 +1,50 @@
+# Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+
+# Approach
+<!-- Describe your approach to solving the problem. -->
+
+# Complexity
+- Time complexity:
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+
+- Space complexity:
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+
+# Code
+```
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+
+//  Brute Force
+// var twoSum = function(nums, target) {
+//     for(let i = 0; i < nums.length; i++){
+//         for(let j = i + 1; j < nums.length ; j++){
+//             if(nums[i] + nums[j] === target) {
+//                 return [i, j];
+//             }
+//         }
+//     }
+//     return [];
+// };
+
+// Optimal
+
+var twoSum = function(nums, target) {
+    let hashMap = new Map();
+
+
+    for (let i = 0; i<nums.length; i++){
+        const search = target - nums[i];
+        if(hashMap.has(search)){
+            return [i, hashMap.get(search)]
+        }else{
+            hashMap.set(nums[i], i);
+        }
+    }
+    return [];
+};
+```
